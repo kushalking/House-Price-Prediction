@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Predictor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>House Price Predictor</h1>
+        <form id="houseForm">
+            <label for="bhk">Size of the house (BHK):</label>
+            <input type="number" id="bhk" name="bhk" required placeholder="e.g., 1, 2, 3">
+
+            <label for="location">Location (as an integer):</label>
+            <input type="number" id="location" name="location" required placeholder="Enter location integer value">
+            <small>Provide the location code. Ensure it matches your predefined mappings.</small>
+
+            <label for="floor">Floor:</label>
+            <input type="number" id="floor" name="floor" required placeholder="e.g., 1, 2, 3">
+
+            <label for="transaction">Transaction Type:</label>
+            <select id="transaction" name="transaction" required>
+                <option value="1">New Property</option>
+                <option value="2">Resale</option>
+                <option value="3">Other</option>
+                <option value="4">Rent/Lease</option>
+            </select>
+
+            <label for="furnishing">Furnishing:</label>
+            <select id="furnishing" name="furnishing" required>
+                <option value="1">Furnished</option>
+                <option value="2">Semi-Furnished</option>
+                <option value="3">Unfurnished</option>
+                <option value="0">Missing</option>
+            </select>
+
+            <label for="balcony">Balcony:</label>
+            <select id="balcony" name="balcony">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <button type="submit">Predict Price</button>
+        </form>
+        <div id="result" class="result-container"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

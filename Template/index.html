@@ -15,7 +15,7 @@
 
             <label for="location">Location (as an integer):</label>
             <input type="number" id="location" name="location" required placeholder="Enter location integer value">
-            <small>Provide the location code. Ensure it matches your predefined mappings.</small>
+            <small>Provide the location code. For location code <a href="city_map.html">Click here</a></small>
 
             <label for="floor">Floor:</label>
             <input type="number" id="floor" name="floor" required placeholder="e.g., 1, 2, 3">
@@ -35,6 +35,9 @@
                 <option value="3">Unfurnished</option>
                 <option value="0">Missing</option>
             </select>
+
+            <label for="bathroom">Bathroom:</label>
+            <input type="number" id="bathroom" name="bathroom" min="1" max="9" required placeholder="e.g., 1, 2, 3">
 
             <label for="balcony">Balcony:</label>
             <select id="balcony" name="balcony">

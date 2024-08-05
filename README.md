@@ -12,7 +12,6 @@ Predict real estate prices accurately with this end-to-end machine learning proj
 - [Model Selection & Deployment](#model-selection--deployment)
 - [Web Application](#web-application)
 - [Usage](#usage)
-- [Repository Structure](#repository-structure)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -55,17 +54,10 @@ This project combines data collection, preprocessing, automated machine learning
     - Enter house details in the form
     - Click "Predict" to see the estimated price
 
-## Repository Structure
-- `data/`: (Optional) Sample data or scripts for fetching data
-- `notebooks/`: (Optional) Jupyter notebooks for exploration and analysis
-- `app/`: HTML, CSS, JavaScript files for the web application
-- `model/`: (Optional) Model files or artifacts (if not using IBM Cloud deployment)
-
-
 
 
 ## Deployment Endpoint Url :
-[Link](https://us-south.ml.cloud.ibm.com/ml/v4/deployments/2a0c52c5-766a-451c-a1bf-697416a0f320/predictions?version=2021-05-01)
+[Link](https://us-south.ml.cloud.ibm.com/ml/v4/deployments/613e95b2-e926-4e1a-b28a-928c9a821d56/predictions?version=2021-05-01)
 
 ### Repository link :
 [Link](https://github.com/kushalking/House-Price-Prediction)
@@ -75,8 +67,15 @@ This project combines data collection, preprocessing, automated machine learning
 
 [![2024-08-04-02-13-07.png](https://i.postimg.cc/QtG4sxh5/2024-08-04-02-13-07.png)](https://postimg.cc/kVsFvCVX)
 
+[![2024-08-06-01-07-20.png](https://i.postimg.cc/FRM2MHnD/2024-08-06-01-07-20.png)](https://postimg.cc/S2GT8k4M)
 
-[![2024-08-04-23-34-24.png](https://i.postimg.cc/SRXJrqYT/2024-08-04-23-34-24.png)](https://postimg.cc/q6TJJPLy)
+[![2024-08-06-01-06-47.png](https://i.postimg.cc/BZDWx2Xy/2024-08-06-01-06-47.png)](https://postimg.cc/Btqw3L5c)
+
+[![2024-08-06-01-08-30.png](https://i.postimg.cc/K88ssT8m/2024-08-06-01-08-30.png)](https://postimg.cc/WhxndhZy)
+
+[![2024-08-06-01-12-58.png](https://i.postimg.cc/hPgYT6Fz/2024-08-06-01-12-58.png)](https://postimg.cc/7bsXyBZw)
+
+[![2024-08-06-01-13-44.png](https://i.postimg.cc/1X6ZXqNk/2024-08-06-01-13-44.png)](https://postimg.cc/hQSY3hss)
 
 
 

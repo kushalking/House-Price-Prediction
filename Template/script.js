@@ -1,7 +1,9 @@
 const API_KEY = "EUxA6CSQF6uNLcR4IlkMaRYbSVaVn7yhrsswAIoSWORz";
 
 async function getToken() {
-    const response = await fetch("https://iam.cloud.ibm.com/identity/token", {
+    console.log('Fetching token...');
+    // Please use a local or cloud-based CORS proxy because I couldn't find any option in IBM Cloud for enabling CORS.
+    const response = await fetch("http://localhost:8080/https://iam.cloud.ibm.com/identity/token", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",
@@ -15,10 +17,12 @@ async function getToken() {
     }
 
     const data = await response.json();
+    console.log('Token fetched:', data.access_token);
     return data.access_token;
 }
 
 async function apiPost(scoring_url, token, payload) {
+    console.log('Sending prediction request...');
     const response = await fetch(scoring_url, {
         method: "POST",
         headers: {
@@ -34,6 +38,7 @@ async function apiPost(scoring_url, token, payload) {
     }
 
     const data = await response.json();
+    console.log('Prediction received:', data);
     return data;
 }
 
@@ -46,14 +51,15 @@ document.getElementById("houseForm").addEventListener("submit", async (event) =>
     const floor = parseInt(document.getElementById("floor").value);
     const transactionType = parseInt(document.getElementById("transaction").value);
     const furnishing = parseInt(document.getElementById("furnishing").value);
+    const bathroom = parseInt(document.getElementById("bathroom").value);
     const balcony = parseInt(document.getElementById("balcony").value);
 
     const payload = {
         "input_data": [
             {
-                "fields": ["bhk", "location", "floor", "transaction", "furnishing", "balcony"],
+                "fields": ["Size", "location", "Floor", "Transaction", "Furnishing", "Bathroom", "Balcony"],
                 "values": [
-                    [bhk, location, floor, transactionType, furnishing, balcony]
+                    [bhk, location, floor, transactionType, furnishing, bathroom, balcony]
                 ]
             }
         ]
@@ -61,13 +67,16 @@ document.getElementById("houseForm").addEventListener("submit", async (event) =>
 
     try {
         const token = await getToken();
-        const scoring_url = "https://us-south.ml.cloud.ibm.com/ml/v4/deployments/2a0c52c5-766a-451c-a1bf-697416a0f320/predictions?version=2021-05-01";
+        // Please use a local or cloud-based CORS proxy because I couldn't find any option in IBM Cloud for enabling CORS.
+        const scoring_url = "http://localhost:8080/https://us-south.ml.cloud.ibm.com/ml/v4/deployments/613e95b2-e926-4e1a-b28a-928c9a821d56/predictions?version=2021-05-01";
         const prediction = await apiPost(scoring_url, token, payload);
         
         const resultContainer = document.getElementById("result");
-        resultContainer.textContent = `Predicted Price: ${prediction.predictions[0].values[0][0]}`;
+        const predictionValue = prediction.predictions[0].values[0][0];
+        const formattedValue = predictionValue.toFixed(2); // Convert to 2 decimal places
+        resultContainer.textContent = `Predicted Price: ${formattedValue} lakh`;
         resultContainer.classList.add("visible");
     } catch (error) {
-        console.error(error);
+        console.error('Error:', error);
     }
 });
